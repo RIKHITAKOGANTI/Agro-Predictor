@@ -1,0 +1,17 @@
+
+
+create table rainfall_district (State text,district text, JAN decimal, FEB decimal, MAR decimal, APR decimal, MAY decimal, JUN decimal, JUL decimal, AUG decimal, SEP decimal, OCT decimal, NOV decimal, DEC decimal, ANNUAL decimal, Jan_Feb decimal, Mar_May decimal, Jun_Sep decimal, Oct_Dec decimal, PRIMARY KEY(State,district, ANNUAL));
+
+copy rainfall_subdivision(STATE_UT_NAME,DISTRICT,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,ANNUAL,Jan_Feb,Mar_May,Jun_Sep,Oct_Dec) from 'C:\Users\arunp\Downloads\district wise rainfall normal.csv' with DELIMITER = ',' AND header = TRUE;
+
+
+
+1. select * from crop where State = 'Kerala' allow filtering;
+2.  select subdivision,year, avg(annual) from rainfall_subdivision group by subdivision,year allow filtering;
+3. select state,area from crop limit 20 allow filtering ;
+4.select state from rainfall_district where Mar_May > 1000 allow filtering;
+5. select subdivision, year, annual as rainfall from rainfall_subdivision where annual > 4000 allow filtering;
+6. select state from rainfall_district where annual > 4000 allow filtering;
+7.select state,district_name,year, season from crop where State = 'Andhra Pradesh' and district_name = 'VISAKHAPATANAM' and Year = 1997 allow filtering;
+8. select state,district_name,year, season from crop where State = 'Kerala' and district_name = 'ERNAKULAM' and  Year = 2005 limit 20 allow filtering;
+9.SELECT state,avg(production), avg(area) FROM crop where state = 'Madhya Pradesh';
